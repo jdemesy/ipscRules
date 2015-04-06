@@ -1,5 +1,32 @@
 <ion-view view-title="Search">
   <ion-content>
-    <h1>Search</h1>
+    <!--<h1>Search Rule</h1>-->
+    <form name="ruleSearch">
+      <div class="list">
+        <div class="item item-input item-select">
+          <div class="input-label">
+            Select Category
+          </div>
+          <select>
+            <option>Handgun</option>
+            <option>Rifle</option>
+            <option>Mini-Rifle</option>
+            <option>Shotgun</option>
+            <option>Action Air</option>
+          </select>
+        </div>
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Rule Number">
+        </label>
+        <label class="item item-input">
+          <i class="icon ion-search placeholder-icon"></i>
+          <input type="text" placeholder="Keyword">
+        </label>
+        <button class="button button-calm">
+          Search
+        </button>
+      </div>
+    </form>
   </ion-content>
 </ion-view>
