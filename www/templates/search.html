@@ -7,26 +7,29 @@
           <div class="input-label">
             Select Category
           </div>
-          <select>
-            <option>Handgun</option>
-            <option>Rifle</option>
-            <option>Mini-Rifle</option>
-            <option>Shotgun</option>
-            <option>Action Air</option>
+          <select ng-model="search.category" ng-init="search.category = 3">
+            <option value="3">Handgun</option>
+            <option value="4">Rifle</option>
+            <option value="5">Mini-Rifle</option>
+            <option value="6">Shotgun</option>
+            <option value="7">Action Air</option>
           </select>
         </div>
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Rule Number">
+          <input type="search" placeholder="Rule Number" ng-model="search.number" ng-change="searchNumber(search)">
         </label>
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Keyword">
+          <input type="text" placeholder="Keyword" ng-model="search.keyword" ng-change="searchKeyword(search)">
         </label>
-        <button class="button button-calm">
-          Search
-        </button>
       </div>
     </form>
+    <ion-list>
+      <ion-item ng-repeat="result in results">
+        <h2>{{result.RULE_NUMBER}}</h2>
+        <p>{{result.RULE_TITLE_ENG}}</p>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>

@@ -1,5 +1,10 @@
 <ion-view view-title="Browse">
-  <ion-content>
-    <h1>Browse</h1>
+  <ion-content ng-controller="BrowseCtrl">
+    <ion-list>
+      <ion-item ng-repeat="rule in rulesdb">
+        <h2>{{rule.RULE_NUMBER}}</h2>
+        <p>{{rule.RULE_TITLE_ENG}}</p>
+      </ion-item>
+    </ion-list>
   </ion-content>
 </ion-view>
