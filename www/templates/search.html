@@ -25,11 +25,13 @@
         </label>
       </div>
     </form>
-    <ion-list>
-      <ion-item ng-repeat="result in results" ui-sref="app.details({ruleId: $index})">
-      <h2>{{result.RULE_NUMBER}}</h2>
-        <p>{{result.RULE_TITLE_ENG}}</p>
-      </ion-item>
-    </ion-list>
+    <ion-scroll>
+      <ion-list>
+        <ion-item ng-repeat="result in results" ui-sref="app.details({ruleId: $index})">
+          <h2>{{result.RULE_NUMBER}}</h2>
+          <p>{{result.RULE_TITLE_ENG}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
   </ion-content>
 </ion-view>
