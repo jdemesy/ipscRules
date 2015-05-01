@@ -1,5 +1,6 @@
 <ion-view view-title="Search">
-  <div class="bar bar-header">
+  <ion-content scroll="false">
+    <!--<h1>Search Rule</h1>-->
     <form name="ruleSearch">
       <div class="list">
         <div class="item item-input item-select">
@@ -7,11 +8,11 @@
             Select Category
           </div>
           <select ng-model="search.category" ng-init="search.category = 3">
-            <option value="3">Handgun</option>
-            <option value="4">Rifle</option>
-            <option value="5">Mini-Rifle</option>
-            <option value="6">Shotgun</option>
-            <option value="7">Action Air</option>
+            <option value="3">Handgun (January 2015 Edition)</option>
+            <option value="4">Rifle (January 2012 Edition)</option>
+            <option value="5">Mini-Rifle (January 2012 Edition)</option>
+            <option value="6">Shotgun (January 2015 Edition)</option>
+            <option value="7">Action Air (January 2015 Edition)</option>
           </select>
         </div>
         <label class="item item-input">
@@ -24,14 +25,13 @@
         </label>
       </div>
     </form>
-  </div>
-  <ion-content scroll="true" class="has-header">
-    <!--<h1>Search Rule</h1>-->
-    <ion-list>
-      <ion-item ng-repeat="result in results" ng-href="#/app/details/{{result.ID}}">
-        <h2>{{result.RULE_NUMBER}}</h2>
-        <p>{{result.RULE_TITLE_ENG}}</p>
-      </ion-item>
-    </ion-list>
+    <ion-scroll zooming="false" direction="y" style="height: 100vh">
+      <ion-list>
+        <ion-item ng-repeat="result in results" ng-href="#/app/details/{{result.ID}}">
+          <h2>{{result.RULE_NUMBER}}</h2>
+          <p>{{result.RULE_TITLE_ENG}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
   </ion-content>
 </ion-view>

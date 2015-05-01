@@ -7,16 +7,16 @@
             Select Category
           </div>
           <select ng-model="browse.category" ng-init="browse.category = 3" ng-change="categoryChanged(browse)">
-            <option value="3">Handgun</option>
-            <option value="4">Rifle</option>
-            <option value="5">Mini-Rifle</option>
-            <option value="6">Shotgun</option>
-            <option value="7">Action Air</option>
+            <option value="3">Handgun (January 2015 Edition)</option>
+            <option value="4">Rifle (January 2012 Edition)</option>
+            <option value="5">Mini-Rifle (January 2012 Edition)</option>
+            <option value="6">Shotgun (January 2015 Edition)</option>
+            <option value="7">Action Air (January 2015 Edition)</option>
           </select>
         </div>
       </div>
     </form>
-    <ion-scroll>
+    <ion-scroll zooming="false" direction="y" style="height: 100vh">
       <ion-list>
         <ion-item ng-repeat="rule in results" ng-href="#/app/details/{{rule.ID}}">
           <h2>{{rule.RULE_NUMBER}}</h2>
