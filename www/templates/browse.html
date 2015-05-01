@@ -1,10 +1,28 @@
 <ion-view view-title="Browse">
   <ion-content ng-controller="BrowseCtrl">
-    <ion-list>
-      <ion-item ng-repeat="rule in rulesdb">
-        <h2>{{rule.RULE_NUMBER}}</h2>
-        <p>{{rule.RULE_TITLE_ENG}}</p>
-      </ion-item>
-    </ion-list>
+    <form name="ruleSearch">
+      <div class="list">
+        <div class="item item-input item-select">
+          <div class="input-label">
+            Select Category
+          </div>
+          <select ng-model="browse.category" ng-init="browse.category = 3" ng-change="categoryChanged(browse)">
+            <option value="3">Handgun</option>
+            <option value="4">Rifle</option>
+            <option value="5">Mini-Rifle</option>
+            <option value="6">Shotgun</option>
+            <option value="7">Action Air</option>
+          </select>
+        </div>
+      </div>
+    </form>
+    <ion-scroll>
+      <ion-list>
+        <ion-item ng-repeat="rule in results" ng-href="#/app/details/{{rule.ID}}">
+          <h2>{{rule.RULE_NUMBER}}</h2>
+          <p>{{rule.RULE_TITLE_ENG}}</p>
+        </ion-item>
+      </ion-list>
+    </ion-scroll>
   </ion-content>
 </ion-view>

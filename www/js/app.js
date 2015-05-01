@@ -51,10 +51,7 @@ angular.module('starter', ['ionic', 'starter.controllers'])
   })
 
   .state('app.details', {
-    url: "/details",
-    params: {
-      ruleId: null,
-    },
+    url: "/details/:ruleId",
     views: {
       'menuContent': {
         templateUrl: "templates/details.html",
