@@ -7,3 +7,5 @@ plugins/
 hooks/
 .idea
 www/lib
+resources/android
+resources/ios
