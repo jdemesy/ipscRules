@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <widget id="com.jdemesy.ipscrules" version="0.9.9" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0">
-  <name>IPSC Rules</name>
+  <name>IPSC Rules Memo</name>
   <description>&#xD;
         An Ionic Framework and Cordova project.&#xD;
     </description>
