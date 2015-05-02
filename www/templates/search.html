@@ -28,8 +28,8 @@
     <ion-scroll zooming="false" direction="y" style="height: 100vh">
       <ion-list>
         <ion-item ng-repeat="result in results" ng-href="#/app/details/{{result.ID}}">
-          <h2>{{result.RULE_NUMBER}}</h2>
-          <p>{{result.RULE_TITLE_ENG}}</p>
+          <h2>{{result.RULE_NUMBER}} - {{result.RULE_TITLE_ENG}}</h2>
+          <p>{{result.RULE_MEMO}}</p>
         </ion-item>
       </ion-list>
     </ion-scroll>

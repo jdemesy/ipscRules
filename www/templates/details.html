@@ -1,6 +1,11 @@
 <ion-view title="Rule Details">
 	<ion-content>
-		<h2>{{rule.RULE_TITLE}}</h2>
-		<p>{{rule.RULE_TEXT_ENG}}</p>
+		<div class="list">
+				<h4>{{rule.RULE_NUMBER}} - {{rule.RULE_TITLE_ENG}}</h4>
+				<p ng-bind-html="rule.RULE_MEMO"></p>
+				<p ng-bind-html="rule.RULE_TEXT_ENG"></p>
+				<p ng-show="rule.OFF1">1st Offense : {{rule.OFF1}}</p>
+				<p ng-show="rule.OFF2">2nd Offense : {{rule.OFF2}}</p>
+			</div>
 	</ion-content>
 </ion-view>
