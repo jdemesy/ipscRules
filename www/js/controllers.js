@@ -4,7 +4,7 @@ angular.module('starter.controllers', [])
 
 })
 
-.controller('SearchCtrl', function($scope, $http) {
+.controller('SearchCtrl', function($scope, $http, $ionicScrollDelegate) {
   $scope.results = [];
 
   $http.get('js/rules.json').then(function(resp) {
@@ -17,6 +17,7 @@ angular.module('starter.controllers', [])
 
   $scope.searchNumber = function(searchParam) {
     $scope.results = [];
+    $ionicScrollDelegate.scrollTop();
     if (searchParam.number) {
       console.log('search begin');
       console.log('parameters', searchParam);
@@ -31,6 +32,7 @@ angular.module('starter.controllers', [])
 
   $scope.searchKeyword = function(searchParam) {
     $scope.results = [];
+    $ionicScrollDelegate.scrollTop();
     if (searchParam.keyword) {
       console.log('search begin');
       console.log('parameters', searchParam);
@@ -44,7 +46,7 @@ angular.module('starter.controllers', [])
   };
 })
 
-.controller('BrowseCtrl', function($scope, $http) {
+.controller('BrowseCtrl', function($scope, $http, $ionicScrollDelegate) {
   $scope.results = [];
   $scope.rulesdb = [];
 
@@ -59,14 +61,15 @@ angular.module('starter.controllers', [])
 
   $scope.categoryChanged = function(searchParam) {
     $scope.results = [];
-      console.log('search begin');
-      console.log('parameters', searchParam);
-      for(i = 0; i < $scope.rulesdb.length; i++) {
-        if ($scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
-          $scope.results.push($scope.rulesdb[i]);
-        }
+    $ionicScrollDelegate.scrollTop();
+    console.log('search begin');
+    console.log('parameters', searchParam);
+    for(i = 0; i < $scope.rulesdb.length; i++) {
+      if ($scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
+        $scope.results.push($scope.rulesdb[i]);
       }
-      console.log('finished', $scope.results);
+    }
+    console.log('finished', $scope.results);
   };
 })
 
