@@ -22,11 +22,12 @@ angular.module('starter.controllers', [])
       console.log('search begin');
       console.log('parameters', searchParam);
       for(i = 0; i < $scope.rulesdb.length; i++) {
-        if ($scope.rulesdb[i].RULE_NUMBER.match(new RegExp(searchParam.number.concat('.*'))) && $scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
+        if ($scope.rulesdb[i].RULE_NUMBER.match(new RegExp(searchParam.number.concat('.*'), "i")) && $scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
           $scope.results.push($scope.rulesdb[i]);
         }
       }
       console.log('finished', $scope.results);
+      $ionicScrollDelegate.resize();
     }
   };
 
@@ -37,11 +38,12 @@ angular.module('starter.controllers', [])
       console.log('search begin');
       console.log('parameters', searchParam);
       for(i = 0; i < $scope.rulesdb.length; i++) {
-        if (($scope.rulesdb[i].RULE_TEXT_ENG.match(new RegExp(searchParam.keyword.concat('.*'))) || $scope.rulesdb[i].RULE_MEMO.match(new RegExp(searchParam.keyword.concat('.*')))) && $scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
+        if (($scope.rulesdb[i].RULE_TEXT_ENG.match(new RegExp(searchParam.keyword.concat('.*'), "i")) || $scope.rulesdb[i].RULE_MEMO.match(new RegExp(searchParam.keyword.concat('.*'), "i"))) && $scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
           $scope.results.push($scope.rulesdb[i]);
         }
       }
       console.log('finished', $scope.results);
+      $ionicScrollDelegate.resize();
     }
   };
 })
@@ -70,6 +72,7 @@ angular.module('starter.controllers', [])
       }
     }
     console.log('finished', $scope.results);
+    $ionicScrollDelegate.resize();
   };
 })
 
@@ -81,6 +84,23 @@ angular.module('starter.controllers', [])
       if (resp.data[i].ID == $stateParams.ruleId) {
         console.log('Rule found');
         $scope.rule = resp.data[i];
+        switch ($scope.rule.RULE_CATEGORY) {
+          case 3:
+          $scope.rule.CATEGORYTEXT = "Handgun";
+          break;
+          case 4:
+          $scope.rule.CATEGORYTEXT = "Rifle";
+          break;
+          case 5:
+          $scope.rule.CATEGORYTEXT = "Mini-Rifle";
+          break;
+          case 6:
+          $scope.rule.CATEGORYTEXT = "Shotgun";
+          break;
+          case 7:
+          $scope.rule.CATEGORYTEXT = "Action Air";
+          break;
+        }
       }
     }
   }, function(err) {
