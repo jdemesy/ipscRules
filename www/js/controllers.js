@@ -8,10 +8,10 @@ angular.module('starter.controllers', [])
   $scope.results = [];
 
   $http.get('js/rules.json').then(function(resp) {
-    console.log('Success', resp);
+    //console.log('Success', resp);
     $scope.rulesdb = resp.data;
   }, function(err) {
-    console.error('ERR', err);
+    //console.error('ERR', err);
     // err.status will contain the status code
   });
 
@@ -19,14 +19,15 @@ angular.module('starter.controllers', [])
     $scope.results = [];
     $ionicScrollDelegate.scrollTop();
     if (searchParam.number) {
-      console.log('search begin');
-      console.log('parameters', searchParam);
+      //console.log('search begin');
+      //console.log('parameters', searchParam);
+      var numberString = new String(searchParam.number);
       for(i = 0; i < $scope.rulesdb.length; i++) {
-        if ($scope.rulesdb[i].RULE_NUMBER.match(new RegExp(searchParam.number.concat('.*'), "i")) && $scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
+        if ($scope.rulesdb[i].RULE_NUMBER.match(new RegExp(numberString.concat('.*'), "i")) && $scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
           $scope.results.push($scope.rulesdb[i]);
         }
       }
-      console.log('finished', $scope.results);
+      //console.log('finished', $scope.results);
       $ionicScrollDelegate.resize();
     }
   };
@@ -35,16 +36,23 @@ angular.module('starter.controllers', [])
     $scope.results = [];
     $ionicScrollDelegate.scrollTop();
     if (searchParam.keyword) {
-      console.log('search begin');
-      console.log('parameters', searchParam);
+      //console.log('search begin');
+      //console.log('parameters', searchParam);
       for(i = 0; i < $scope.rulesdb.length; i++) {
         if (($scope.rulesdb[i].RULE_TEXT_ENG.match(new RegExp(searchParam.keyword.concat('.*'), "i")) || $scope.rulesdb[i].RULE_MEMO.match(new RegExp(searchParam.keyword.concat('.*'), "i"))) && $scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
           $scope.results.push($scope.rulesdb[i]);
         }
       }
-      console.log('finished', $scope.results);
+      //console.log('finished', $scope.results);
       $ionicScrollDelegate.resize();
     }
+  };
+
+  $scope.categoryChanged = function(searchParam) {
+    $scope.results = [];
+    $ionicScrollDelegate.scrollTop();
+    $searchParam.number = "";
+    $searchParam.keyword = "";
   };
 })
 
@@ -64,14 +72,14 @@ angular.module('starter.controllers', [])
   $scope.categoryChanged = function(searchParam) {
     $scope.results = [];
     $ionicScrollDelegate.scrollTop();
-    console.log('search begin');
-    console.log('parameters', searchParam);
+    //console.log('search begin');
+    //console.log('parameters', searchParam);
     for(i = 0; i < $scope.rulesdb.length; i++) {
       if ($scope.rulesdb[i].RULE_CATEGORY == searchParam.category) {
         $scope.results.push($scope.rulesdb[i]);
       }
     }
-    console.log('finished', $scope.results);
+    //console.log('finished', $scope.results);
     $ionicScrollDelegate.resize();
   };
 })
@@ -79,10 +87,10 @@ angular.module('starter.controllers', [])
 .controller('DetailsCtrl', function($scope, $stateParams, $http) {
   $scope.rule = {};
   $http.get('js/rules.json').then(function(resp) {
-    console.log('Success', resp);
+    //console.log('Success', resp);
     for (i = 0; i < resp.data.length; i++) {
       if (resp.data[i].ID == $stateParams.ruleId) {
-        console.log('Rule found');
+        //console.log('Rule found');
         $scope.rule = resp.data[i];
         switch ($scope.rule.RULE_CATEGORY) {
           case 3:

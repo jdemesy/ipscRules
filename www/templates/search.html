@@ -10,21 +10,21 @@
           <div class="input-label">
             Category
           </div>
-          <select ng-model="search.category" ng-init="search.category = 3">
-            <option value="3">Handgun (January 2015 Edition)</option>
-            <option value="4">Rifle (January 2015 Edition)</option>
-            <option value="5">Mini-Rifle (January 2015 Edition)</option>
-            <option value="6">Shotgun (January 2015 Edition)</option>
-            <option value="7">Action Air (January 2015 Edition)</option>
+          <select ng-model="search.category" ng-init="search.category = 3" ng-change="categoryChanged(search)">
+            <option value="3">Handgun (Jan 2015 Ed)</option>
+            <option value="4">Rifle (Jan 2015 Ed)</option>
+            <option value="5">Mini-Rifle (Jan 2015 Ed)</option>
+            <option value="6">Shotgun (Jan 2015 Ed)</option>
+            <option value="7">Action Air (Jan 2015 Ed)</option>
           </select>
         </div>
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="search" placeholder="Rule Number" ng-model="search.number" ng-change="searchNumber(search)">
+          <input type="number" placeholder="Rule Number" ng-model="search.number" ng-change="searchNumber(search)">
         </label>
         <label class="item item-input">
           <i class="icon ion-search placeholder-icon"></i>
-          <input type="text" placeholder="Keyword" ng-model="search.keyword" ng-change="searchKeyword(search)">
+          <input type="search" placeholder="Keyword" ng-model="search.keyword" ng-change="searchKeyword(search)">
         </label>
       </div>
     </form>
