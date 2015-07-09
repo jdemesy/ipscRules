@@ -67,6 +67,24 @@ angular.module('starter', ['ionic', 'starter.controllers'])
         templateUrl: "templates/about.html"
       }
     }
+  })
+
+  .state('app.appendix', {
+    url: "/appendix",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/appendix.html"
+      }
+    }
+  })
+
+  .state('app.settings', {
+    url: "/settings",
+    views: {
+      'menuContent': {
+        templateUrl: "templates/settings.html"
+      }
+    }
   });
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/search');

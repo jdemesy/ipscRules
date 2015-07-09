@@ -1,0 +1,18 @@
+<ion-view view-title="Settings">
+  <ion-content>
+    <div class="list">
+      <div class="item item-input item-select">
+        <div class="input-label">
+          Category
+        </div>
+        <select ng-model="browse.category" ng-init="browse.category = 3" ng-change="categoryChanged(browse)">
+          <option value="3">Handgun (Jan 2015 Ed)</option>
+          <option value="4">Rifle (Jan 2015 Ed)</option>
+          <option value="5">Mini-Rifle (Jan 2015 Ed)</option>
+          <option value="6">Shotgun (Jan 2015 Ed)</option>
+          <option value="7">Action Air (Jan 2015 Ed)</option>
+        </select>
+      </div>
+    </div>
+  </ion-content>
+</ion-view>
