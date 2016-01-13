@@ -31,6 +31,9 @@
         <ion-item nav-clear menu-close href="#/app/settings">
           <i class="icon ion-ios-gear-outline"></i> Settings
         </ion-item>
+        <ion-item nav-clear menu-close class="assertive" ng-show="hasUpdate" ng-click="doUpdate()">
+          <i class="icon ion-ios-download-outline assertive"></i> Update
+        </ion-item>
         <ion-item nav-clear menu-close href="#/app/about">
           <i class="icon ion-ios-information-outline"></i> About
         </ion-item>

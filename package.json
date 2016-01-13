@@ -17,7 +17,14 @@
   "cordovaPlugins": [
     "org.apache.cordova.device",
     "org.apache.cordova.console",
-    "com.ionic.keyboard"
+    "com.ionic.keyboard",
+    "cordova-plugin-console",
+    "cordova-plugin-device",
+    "cordova-plugin-splashscreen",
+    "cordova-plugin-statusbar",
+    "cordova-plugin-whitelist",
+    "ionic-plugin-keyboard",
+    "ionic-plugin-deploy"
   ],
   "cordovaPlatforms": [
     "android",
